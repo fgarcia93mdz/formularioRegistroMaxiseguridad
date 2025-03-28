@@ -1,172 +1,226 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Registro de Candidato — MAXISEGURIDAD</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
   <style>
-    body{background: #f4f5f7;
+    body {
+      background: #f4f5f7;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;}.container{background-color: #ffffff;}h2{color: #004c7f;
-      font-weight: 600;}.btn-primary, .btn-success{background-color: #004c7f;
-      border-color: #004c7f;}.btn-primary:hover, .btn-success:hover{background-color: #0063aa;
-      border-color: #0063aa;}/* Ocultamos algunos campos según las respuestas */
-    .d-none{display: none !important;}</style>
+      color: #333;
+    }
+
+    .container {
+      background-color: #ffffff;
+    }
+
+    h2 {
+      color: #004c7f;
+      font-weight: 600;
+    }
+
+    .btn-primary,
+    .btn-success {
+      background-color: #004c7f;
+      border-color: #004c7f;
+    }
+
+    .btn-primary:hover,
+    .btn-success:hover {
+      background-color: #0063aa;
+      border-color: #0063aa;
+    }
+
+    .d-none {
+      display: none !important;
+    }
+
+    .thanks-message {
+      text-align: center;
+      color: #28a745;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container my-5 p-4 border rounded shadow-sm" id="formContainer">
-  <h2 class="mb-4">Registro de Candidato — MAXISEGURIDAD</h2>
-  <form id="cvForm">
-    <!-- Campo oculto para Flow -->
-    <input type="hidden" name="ItemType" value="RegistroCV">
+  <div class="container my-5 p-4 border rounded shadow-sm" id="formContainer">
+    <h2 class="mb-4 text-center">Registro de Candidato — MAXISEGURIDAD</h2>
+    <form id="cvForm">
+      <!-- Campo oculto para Flow -->
+      <input type="hidden" name="ItemType" value="RegistroCV">
 
-    <div class="form-group">
-      <label><strong>Nombre y Apellido</strong></label>
-      <input name="NombreApellido" class="form-control" required>
-    </div>
+      <div class="form-group">
+        <label><strong>Nombre y Apellido</strong></label>
+        <input name="NombreApellido" class="form-control" required>
+      </div>
 
-    <div class="form-group">
-      <label><strong>Correo Electrónico</strong></label>
-      <input name="CorreoElectronico" type="email" class="form-control" required>
-    </div>
+      <div class="form-group">
+        <label><strong>Correo Electrónico</strong></label>
+        <input name="CorreoElectronico" type="email" class="form-control" required>
+      </div>
 
-    <div class="form-group">
-      <label><strong>Celular</strong></label>
-      <input name="Celular" type="text" class="form-control" required>
-    </div>
+      <div class="form-group">
+        <label><strong>Celular</strong></label>
+        <input name="Celular" type="text" class="form-control" required>
+      </div>
 
-    <!-- ¿Estás cursando una carrera universitaria? -->
-    <div class="form-group">
-      <label><strong>¿Estás cursando una carrera universitaria?</strong></label>
-      <select name="EstudiaUni" id="EstudiaUni" class="form-control" required>
-        <option value="">Seleccione…</option>
-        <option>Sí</option>
-        <option>No</option>
-      </select>
-    </div>
-
-    <!-- Se ocultan por defecto y se muestran si EstudiaUni = Sí -->
-    <div class="form-group d-none" id="divCarrera">
-      <label><strong>Carrera Universitaria</strong></label>
-      <input name="carreraUniversitaria" class="form-control">
-    </div>
-    <div class="form-group d-none" id="divUni">
-      <label><strong>Universidad</strong></label>
-      <input name="Universidad" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label><strong>Área deseada</strong></label>
-      <select name="GustariaTrabajar" class="form-control" required>
-        <option value="">Seleccione…</option>
-        <option>Obras</option>
-        <option>Ingeniería</option>
-        <option>Taller</option>
-        <option>Logística</option>
-        <option>Comercial</option>
-        <option>Compras</option>
-        <option>Administración y finanzas</option>
-        <option>Facturación</option>
-        <option>Recursos Humanos</option>
-        <option>Marketing</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label><strong>Puesto al que postulas</strong></label>
-      <input name="PuestoPostulas" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-      <label><strong>Localidad de Residencia</strong></label>
-      <input name="LocalidadResidencia" class="form-control" required>
-    </div>
-
-    <div class="form-row">
-      <div class="col">
-        <label><strong>Graduado ET?</strong></label>
-        <select name="GraduadoET" id="GraduadoET" class="form-control" required>
+      <div class="form-group">
+        <label><strong>¿Estás cursando una carrera universitaria?</strong></label>
+        <select name="EstudiaUni" id="EstudiaUni" class="form-control" required>
           <option value="">Seleccione…</option>
           <option>Sí</option>
           <option>No</option>
         </select>
       </div>
-      <!-- Se oculta si GraduadoET=No -->
-      <div class="col d-none" id="colEscuela">
-        <label><strong>Escuela Técnica</strong></label>
-        <input name="EscuelaTecnica" class="form-control">
+
+      <div class="form-group d-none" id="divCarrera">
+        <label><strong>Carrera Universitaria</strong></label>
+        <input name="carreraUniversitaria" class="form-control">
       </div>
-    </div>
+      <div class="form-group d-none" id="divUni">
+        <label><strong>Universidad</strong></label>
+        <input name="Universidad" class="form-control">
+      </div>
 
-    <div class="form-group mt-3">
-      <label><strong>Remuneración Pretendida (neto)</strong></label>
-      <input name="RemuneracionPretendida" class="form-control">
-    </div>
+      <div class="form-group">
+        <label><strong>Área deseada</strong></label>
+        <select name="GustariaTrabajar" class="form-control" required>
+          <option value="">Seleccione…</option>
+          <option>Obras</option>
+          <option>Ingeniería</option>
+          <option>Taller</option>
+          <option>Logística</option>
+          <option>Comercial</option>
+          <option>Compras</option>
+          <option>Administración y finanzas</option>
+          <option>Facturación</option>
+          <option>Recursos Humanos</option>
+          <option>Marketing</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label><strong>Adjuntar CV (PDF)</strong></label>
-      <input type="file" id="cvFile" class="form-control-file" accept=".pdf" required>
-    </div>
+      <div class="form-group">
+        <label><strong>Puesto al que postulas</strong></label>
+        <input name="PuestoPostulas" class="form-control" required>
+      </div>
 
-    <button type="submit" class="btn btn-success btn-block">Enviar Registro</button>
-  </form>
-</div>
+      <div class="form-group">
+        <label><strong>Localidad de Residencia</strong></label>
+        <input name="LocalidadResidencia" class="form-control" required>
+      </div>
 
-<script>
-// Manejo de campos condicionales
-const divCarrera = document.getElementById('divCarrera');
-const divUni = document.getElementById('divUni');
-const selEstudiaUni = document.getElementById('EstudiaUni');
-selEstudiaUni.addEventListener('change', () =>{if (selEstudiaUni.value === 'Sí'){divCarrera.classList.remove('d-none');
-    divCarrera.querySelector('input').required = true;
-    divUni.classList.remove('d-none');
-    divUni.querySelector('input').required = true;}else{divCarrera.classList.add('d-none');
-    divCarrera.querySelector('input').required = false;
-    divCarrera.querySelector('input').value = '';
-    divUni.classList.add('d-none');
-    divUni.querySelector('input').required = false;
-    divUni.querySelector('input').value = '';}});
+      <div class="form-row">
+        <div class="col">
+          <label><strong>Graduado ET?</strong></label>
+          <select name="GraduadoET" id="GraduadoET" class="form-control" required>
+            <option value="">Seleccione…</option>
+            <option>Sí</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="col d-none" id="colEscuela">
+          <label><strong>Escuela Técnica</strong></label>
+          <input name="EscuelaTecnica" class="form-control">
+        </div>
+      </div>
 
-const colEscuela = document.getElementById('colEscuela');
-const selGraduadoET = document.getElementById('GraduadoET');
-const inputEscuela = colEscuela.querySelector('input[name="EscuelaTecnica"]');
-selGraduadoET.addEventListener('change', () =>{if (selGraduadoET.value === 'Sí'){colEscuela.classList.remove('d-none');
-    inputEscuela.required = true;}else{colEscuela.classList.add('d-none');
-    inputEscuela.required = false;
-    inputEscuela.value = '';}});
+      <div class="form-group mt-3">
+        <label><strong>Remuneración Pretendida (neto)</strong></label>
+        <input name="RemuneracionPretendida" class="form-control">
+      </div>
 
-// Función para convertir el PDF a Base64
-async function fileToBase64(file){return new Promise((res, rej) =>{const reader = new FileReader();
-    reader.onload = () => res(reader.result.split(',')[1]);
-    reader.onerror = rej;
-    reader.readAsDataURL(file);});}// Manejo del envío del formulario
-document.getElementById('cvForm').addEventListener('submit', async e =>{e.preventDefault();
+      <div class="form-group">
+        <label><strong>Adjuntar CV (PDF)</strong></label>
+        <input type="file" id="cvFile" class="form-control-file" accept=".pdf">
+      </div>
 
-  // Recolectamos datos
-  const formData = new FormData(e.target);
-  const data = Object.fromEntries(formData);
+      <button type="submit" class="btn btn-success btn-block">Enviar Registro</button>
+    </form>
+  </div>
 
-  // Convertir PDF a Base64
-  const file = document.getElementById('cvFile').files[0];
-  data.CvDrive = await fileToBase64(file);
+  <script>
+    const divCarrera = document.getElementById('divCarrera');
+    const divUni = document.getElementById('divUni');
+    const selEstudiaUni = document.getElementById('EstudiaUni');
+    selEstudiaUni.addEventListener('change', () => {
+      if (selEstudiaUni.value === 'Sí') {
+        divCarrera.classList.remove('d-none');
+        divCarrera.querySelector('input').required = true;
+        divUni.classList.remove('d-none');
+        divUni.querySelector('input').required = true;
+      } else {
+        divCarrera.classList.add('d-none');
+        divCarrera.querySelector('input').required = false;
+        divCarrera.querySelector('input').value = '';
+        divUni.classList.add('d-none');
+        divUni.querySelector('input').required = false;
+        divUni.querySelector('input').value = '';
+      }
+    });
 
-  // Enviar al Flow
-  const resp = await fetch(
-    'https://prod-07.westus.logic.azure.com:443/workflows/7ab75adb4f8f48efb50d62e532ea976d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zEuVzFC072quIP3pByqBZiFEo29HNimJY1l6jW2iu4E',{method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify(data)});
+    const colEscuela = document.getElementById('colEscuela');
+    const selGraduadoET = document.getElementById('GraduadoET');
+    const inputEscuela = colEscuela.querySelector('input[name="EscuelaTecnica"]');
+    selGraduadoET.addEventListener('change', () => {
+      if (selGraduadoET.value === 'Sí') {
+        colEscuela.classList.remove('d-none');
+        inputEscuela.required = true;
+      } else {
+        colEscuela.classList.add('d-none');
+        inputEscuela.required = false;
+        inputEscuela.value = '';
+      }
+    });
 
-  const text = await resp.text();
-  const container = document.getElementById('formContainer');
+    async function fileToBase64(file) {
+      return new Promise((res, rej) => {
+        const reader = new FileReader();
+        reader.onload = () => res(reader.result.split(',')[1]);
+        reader.onerror = rej;
+        reader.readAsDataURL(file);
+      });
+    }
 
-  if (!resp.ok){// En caso de error, se puede mostrar un mensaje de error en el mismo contenedor
-    container.innerHTML = `<h2>Error ${resp.status}: ${text}</h2>`;
-    console.error('Response body:', text);}else{// Mostrar mensaje de éxito
-    container.innerHTML = `<h2 class="mb-4">Gracias por enviar tu registro</h2>`;
-    // Luego de 3 segundos, recargar la página para mostrar el formulario limpio
-    setTimeout(() =>{location.reload();}, 3000);}});
-</script>
+    document.getElementById('cvForm').addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+
+      if (document.getElementById('cvFile').files.length > 0) {
+        const file = document.getElementById('cvFile').files[0];
+        data.CvDrive = await fileToBase64(file);
+      }
+
+      const resp = await fetch(
+        'https://prod-07.westus.logic.azure.com:443/workflows/7ab75adb4f8f48efb50d62e532ea976d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zEuVzFC072quIP3pByqBZiFEo29HNimJY1l6jW2iu4E', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      );
+
+      const text = await resp.text();
+      const container = document.getElementById('formContainer');
+
+      if (!resp.ok) {
+        container.innerHTML = `<h2>Error ${resp.status}: ${text}</h2>`;
+        console.error('Response body:', text);
+      } else {
+        container.innerHTML = `<h2 class="thanks-message mb-4">Gracias por enviar tu registro</h2>`;
+        setTimeout(() => {
+          location.reload();
+        }, 3000);
+      }
+    });
+  </script>
 </body>
+
 </html>
